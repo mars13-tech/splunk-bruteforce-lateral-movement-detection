@@ -290,8 +290,9 @@ This project demonstrates a complete SOC workflow:
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-Blue Team SOC Lab Project
-
-Built using Splunk Enterprise, Ubuntu Linux, Windows Security Logs, and Blue Team Detection Engineering methodologies.
+**Karthikeyan**
+Cybersecurity Engineering Student | Blue Team | SOC Analyst in the Making
+🔗 [LinkedIn](https://www.linkedin.com/in/karthi-keyan-9042862bb)
+🐙 [GitHub](https://github.com/mars13-tech)
