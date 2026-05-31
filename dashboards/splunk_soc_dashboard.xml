@@ -1,0 +1,21 @@
+<!--
+Dashboard Export Placeholder
+
+Dashboard Name:
+Brute Force + Lateral Movement Detection Lab
+
+Panels:
+1. SSH Brute Force Activity
+2. Top Attacking IPs
+3. Successful SSH Logins
+4. Windows Logons
+5. Privilege Escalation & Process Activity
+6. Attack Timeline
+
+This dashboard was created in Splunk Enterprise.
+To obtain the actual XML:
+
+Dashboard → Edit → Source
+Copy XML
+Paste into this file.
+-->
