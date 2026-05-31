@@ -1,0 +1,10 @@
+# Brute Force Success Detection
+
+# Detects multiple failed SSH login attempts followed by a successful login.
+
+index=main host="mars-VirtualBox"
+("Failed password" OR "Accepted password")
+| rex "from (?<src>\d+.\d+.\d+.\d+)"
+| transaction src maxspan=10m
+| search eventcount > 5 AND "Accepted password"
+| table _time src duration eventcount
