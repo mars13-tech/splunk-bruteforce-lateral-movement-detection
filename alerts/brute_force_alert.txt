@@ -1,0 +1,28 @@
+ALERT NAME: SSH_Brute_Force_Detection
+
+DESCRIPTION:
+Detects excessive failed SSH login attempts from a source IP address.
+
+SEVERITY:
+High
+
+TRIGGER CONDITION:
+Failed SSH login attempts > 10
+
+DATA SOURCE:
+Ubuntu Authentication Logs (/var/log/auth.log)
+
+DETECTION QUERY:
+
+index=main host="mars-VirtualBox" "Failed password"
+| rex "from (?<src>\d+.\d+.\d+.\d+)"
+| stats count as failed_attempts by src
+| where failed_attempts > 10
+
+RECOMMENDED RESPONSE:
+
+1. Identify source IP address.
+2. Review authentication logs.
+3. Determine if activity is authorized.
+4. Block malicious IP if necessary.
+5. Continue monitoring for successful authentication attempts.
