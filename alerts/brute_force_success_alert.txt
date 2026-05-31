@@ -1,0 +1,30 @@
+ALERT NAME: SSH_Brute_Force_Success
+
+DESCRIPTION:
+Detects successful SSH authentication following multiple failed login attempts.
+
+SEVERITY:
+Critical
+
+TRIGGER CONDITION:
+More than 5 failed login attempts followed by a successful login within 10 minutes.
+
+DATA SOURCE:
+Ubuntu Authentication Logs (/var/log/auth.log)
+
+DETECTION QUERY:
+
+index=main host="mars-VirtualBox"
+("Failed password" OR "Accepted password")
+| rex "from (?<src>\d+.\d+.\d+.\d+)"
+| transaction src maxspan=10m
+| search eventcount > 5 AND "Accepted password"
+
+RECOMMENDED RESPONSE:
+
+1. Verify user legitimacy.
+2. Review account activity.
+3. Reset compromised credentials.
+4. Review subsequent system actions.
+5. Investigate possible lateral movement.
+6. Escalate incident if compromise is confirmed.
